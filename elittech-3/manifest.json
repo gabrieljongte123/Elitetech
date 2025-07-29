@@ -1,0 +1,21 @@
+{
+  "name": "Gabriel E-Commerce PWA",
+  "short_name": "GabPWA",
+  "start_url": "./Start.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2874f0",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "gab.jpg",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "gab1.jpg",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

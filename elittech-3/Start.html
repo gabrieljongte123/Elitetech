@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gabriel PWA</title>
+    <link rel="stylesheet" href="start.css" />
+    <link rel="manifest" href="manifest.json" />
+    
+
+  </head>
+  <body>
+    <header>
+        <button id="installBtn" style="display:none; position: fixed; bottom: 20px; right: 20px; padding: 10px 20px; background: #2874f0; color: white; border: none; border-radius: 5px;">Install App</button>
+        <nav class="navbar">
+            <h1 class="logo"> PWA</h1>
+            <input type="text" class="search-bar" placeholder="Search for products, brands and more" />
+            <ul class="nav-links">
+                <li><a href="#about">Login</a></li>
+                <li><a href=#cart">Your Cart</a></li>
+                <li><a href=#seller">Become a Seller</a></li>
+
+            </ul>
+        </nav>
+    </header>
+ 
+    <!-- Category Bar -->
+    <section class="categories">
+      <div class="category">Grocery</div>
+      <div class="category">Mobiles</div>
+      <div class="category">Fashion</div>
+      <div class="category">Electronics</div>
+      <div class="category">Toys</div>
+    </section>
+
+    <!-- Banner -->
+    <section class="banner">
+      <h2>Galaxy F36 5G</h2>
+      <img src="f35.jpg" alt="f35" class="img1" />
+      <p>From ₹15,999 – Sale starts on 29th July</p>
+    </section>
+
+    <!-- Products -->
+    <section class="products">
+      <h3>Best of Electronics</h3>
+      <div class="product-grid">
+        <div class="product-card">
+          <img src="watch.jpg" alt="f35" class="img2" />
+          <p>Smart Watch</p>
+        </div>
+        <div class="product-card">
+          <img src="monitor.jpg" alt="Product" class="img2" />
+          <p>Monitor</p>
+        </div>
+        <div class="product-card">
+          <img src="speaker.jpg" alt="Product" class="img2"/>
+          <p>Bluetooth Speaker</p>
+        </div>
+        <!-- Add more -->
+      </div>
+    </section>
+    <script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker
+      .register('service-worker.js')
+      .then((reg) => console.log('🛠️ Service Worker registered:', reg.scope))
+      .catch((err) => console.error('❌ SW registration failed:', err));
+  }
+</script>
+<script src="install.js"></script>
+<script>
+  // Ask for notification permission
+  if ('Notification' in window && navigator.serviceWorker) {
+    Notification.requestPermission().then(permission => {
+      if (permission === "granted") {
+        navigator.serviceWorker.ready.then(reg => {
+          reg.showNotification("🎉 Welcome to Gabriel's E-Commerce PWA!", {
+            body: "You're all set to receive updates.",
+            icon: "gab.jpg"
+          });
+        });
+      }
+    });
+  }
+</script>
+  </body>
+</html>
